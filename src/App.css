@@ -1,0 +1,27 @@
+.btn,
+.jumbotron,
+.nav :hover {
+  border-radius: 0px;
+}
+
+body {
+  background: #343a40;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.cardprops
+{
+  margin-left: 6%;
+  margin-right: 2%;
+  margin-bottom: 20%;
+}
+
+.mail-btn
+{
+  margin-left:20%;
+}
