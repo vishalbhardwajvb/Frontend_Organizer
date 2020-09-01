@@ -6,12 +6,12 @@ const ImageHelper=({url})=>
 
     return(
 
-        <div style={{width:"280px",height:"280px"}} className="rounded border border-info">
+        <div  className="rounded border border-info">
             <img
             src={url}
             alt="photo1"
-            style={{maxHeight:"100%",maxWidth:"100%"}}
-            className="mb-3 rounded"
+            style={{width:"280px",height:"300px"}}
+            className="rounded card-img"
             />
         </div>
 
