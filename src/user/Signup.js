@@ -184,7 +184,7 @@ const Signup=()=>{
                         </div>
 
                         <div className="form-group">
-                        <label className="text-light">Category</label>
+                        <label className="text-light">Subject</label>
 
         <select
           onChange={handleChange("category")}

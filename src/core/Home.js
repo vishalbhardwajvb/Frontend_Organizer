@@ -51,13 +51,15 @@ export default function Home() {
       {loadingMessage()}
       <div className="row text-center">
         <div className="container-fluid">
+        
          <div className="row">
            {
              
              values.map((element)=>{
                
+               
             
-              return  <Card key={element._id}  userName={element.name} userId={element._id}  path="https://image.freepik.com/free-vector/coming-soon-typography-style-vector_53876-56733.jpg"  coursecode={element.coursecode}/>
+              return  <Card key={element._id} coursecate={element.category.category}   userName={element.name} userId={element._id}  coursecode={element.coursecode}/>
          
              })
            }

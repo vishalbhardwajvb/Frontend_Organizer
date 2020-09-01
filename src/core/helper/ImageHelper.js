@@ -6,7 +6,7 @@ const ImageHelper=({url})=>
 
     return(
 
-        <div style={{width:"300px",height:"300px"}} className="rounded border border-info">
+        <div style={{width:"280px",height:"280px"}} className="rounded border border-info">
             <img
             src={url}
             alt="photo1"

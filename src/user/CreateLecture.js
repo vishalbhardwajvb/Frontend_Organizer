@@ -30,7 +30,7 @@ const CreateLecture = () => {
 
   const onSubmit = event => {
     event.preventDefault();
-    setLecture({...lecture,loading:true,userId:user._id});
+    setLecture({...lecture,loading:true,userId:user._id,success:false});
     if(day && url && description)
     {
       createLecture({day,description,url,userId,time},user._id).then(data=>{
