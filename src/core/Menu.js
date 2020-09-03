@@ -16,21 +16,13 @@ const Menu = ({ history }) => (
   
   <div style={{borderBottom:".5px solid #2ecc72",position:"fixed",width:"100%",zIndex:"10"}}>
 
-
-
-
-
-
-
-
-
-
-
-<nav class="navbar navbar-dark bg-dark text-white">
+    <nav class="navbar navbar-dark bg-dark text-white">
+  
 
 
 <ul className="nav bg-dark">
       <li className="nav-item">
+      
         <Link style={currentTab(history, "/")} className="nav-link menuLinks" to="/">
           Home
         </Link>

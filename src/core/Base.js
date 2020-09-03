@@ -31,11 +31,13 @@ const Base=({
           <>
             
    
-            <div className="alert alert-success col-sm-6 offset-sm-3">
+          <div className="row">
+          <div className="alert alert-success col-sm-6 offset-sm-3">
               <u><h2>Mail Your Query To</h2></u>
               <h3 style={{display:"inline-block"}}>Vishalbhardwaj@gmail.com</h3>
               <button onClick={HideMailBox} className="btn btn-danger mail-btn">Done</button>
             </div>
+          </div>
           </>
 
         )

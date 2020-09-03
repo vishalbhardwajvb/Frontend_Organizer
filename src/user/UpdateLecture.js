@@ -53,6 +53,7 @@ const {day,url,description,loading,error,success,time}=values;
   };
 
   const preload=()=>{
+    setValues({...values,loading:true,error:false,success:false})
 
     getPreloadLecture(user._id,match.params.lectureId).then(data=>{
       if(data.error)
