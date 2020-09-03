@@ -197,10 +197,14 @@ const {day,url,description,loading,error,success,time}=values;
       title="Update Your Lecture here!"
       description="Welcome to Updation section"
       className="container bg-info p-4"
+      
     >
-      <Link to="/user/dashboard" className="btn btn-md btn-dark mb-3">
+     <div className="row"> <Link to="/user/dashboard" className="btn btn-md btn-dark mb-3 offset-1 col-md-3">
        Go to DashBoard
       </Link>
+      <Link to="/user/getAllLecture/forUpdate" className="btn btn-md btn-dark mb-3 offset-3 col-md-3">
+       Back to Update Page
+      </Link></div>
       <div className="row bg-dark text-white rounded">
         <div className="col-md-8 offset-md-2">
             {loadingMessage()}

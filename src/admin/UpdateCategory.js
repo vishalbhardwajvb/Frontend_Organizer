@@ -6,6 +6,7 @@ import { getCategoryById,getCategoryByIdAndUpdate} from "./helper/helper";
 
 const UodateCategory = ({match}) => {
   const [category, setCategory] = useState("");
+  const [url, setCategoryUrl] = useState("");
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -21,7 +22,8 @@ const preload=()=>{
         }
         else{
             setError(false)
-            setCategory(data.data.category)
+            setCategory(data.data.category);
+            setCategoryUrl(data.data.url);
 
         }
     }).catch(err=>console.log("GET CATGORY BY ID ERROR IN ADMIN PANEL",err));
@@ -49,13 +51,19 @@ useEffect(()=>{
     setCategory(event.target.value);
   };
 
+  const handleChangeUrl=event=>{
+    setError("");
+    setCategoryUrl(event.target.value);
+
+  }
+
   const onSubmit = event => {
     event.preventDefault();
     setError("");
     setSuccess(false);
 
     // backend request fired
-    getCategoryByIdAndUpdate(user._id,match.params.categoryId,{category}).then(data=>{
+    getCategoryByIdAndUpdate(user._id,match.params.categoryId,{category,url}).then(data=>{
         if(data.error)
         {
             setSuccess(false)
@@ -93,6 +101,16 @@ useEffect(()=>{
           autoFocus
           required
           placeholder="For Ex. Summer"
+        />
+
+      <p className="lead">Update category Image Url</p>
+        <input
+          type="text"
+          className="form-control my-3"
+          onChange={handleChangeUrl}
+          value={url}
+          required
+          placeholder="https://imageammnsxz.jpg"
         />
         <button onClick={onSubmit} className="btn btn-outline-info">
           Update Category

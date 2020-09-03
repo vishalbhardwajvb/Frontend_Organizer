@@ -25,3 +25,11 @@ body {
 {
   margin-left:20%;
 }
+
+.menuLinks
+{
+  font-family: 'Oleo Script', cursive;
+  font-size: 2rem;
+  color: white;
+  font-weight: 300;
+}

@@ -27,7 +27,7 @@ const Card=({
                 <ImageHelper url={path}/>
                 <div className="row ">
                     <div className="col-12 mt-5 border border-info text-white rounded"><h5 className="mt-2">{coursecate}</h5></div>
-                    <Link to={`/loadAllLecture/${userId}`}  className="col-12 text-lead mt-3 bg-success text-white rounded">
+                    <Link to={`/loadAllLecture/${userId}`}  className="btn btn-md btn-success text-lead mt-3 col-md-12 text-white rounded">
                         <span><h4>Enter Course</h4> </span>
                     </Link>
                 </div>

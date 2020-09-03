@@ -59,7 +59,7 @@ export default function Home() {
                
                
             
-              return  <Card key={element._id} coursecate={element.category.category}   userName={element.name} userId={element._id}  coursecode={element.coursecode}/>
+              return  <Card key={element._id} coursecate={element.category.category}  path={element.category.url}  userName={element.name} userId={element._id}  coursecode={element.coursecode}/>
          
              })
            }

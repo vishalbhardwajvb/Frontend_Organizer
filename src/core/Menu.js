@@ -4,7 +4,7 @@ import { signout,isAuthenticated } from "../auth/helper/helper";
 
 const currentTab = (history, path) => {
   if (history.location.pathname === path) {
-    return { color: "#2ecc72" };
+    return { color: "#2ecc72",borderTop:".5px solid #2ecc72" };
   } else {
     return { color: "#FFFFFF" };
   }
@@ -14,10 +14,24 @@ const currentTab = (history, path) => {
 
 const Menu = ({ history }) => (
   
-  <div>
-    <ul className="nav nav-tabs bg-dark">
+  <div style={{borderBottom:".5px solid #2ecc72",position:"fixed",width:"100%",zIndex:"10"}}>
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-dark bg-dark text-white">
+
+
+<ul className="nav bg-dark">
       <li className="nav-item">
-        <Link style={currentTab(history, "/")} className="nav-link" to="/">
+        <Link style={currentTab(history, "/")} className="nav-link menuLinks" to="/">
           Home
         </Link>
       </li>
@@ -26,7 +40,7 @@ const Menu = ({ history }) => (
          isAuthenticated() && isAuthenticated().user.role===0 && ( <li className="nav-item">
          <Link
            style={currentTab(history, "/user/dashboard")}
-           className="nav-link"
+           className="nav-link menuLinks"
            to="/user/dashboard"
          >
            Dashboard
@@ -39,7 +53,7 @@ const Menu = ({ history }) => (
           isAuthenticated() && isAuthenticated().user.role===1 && (<li className="nav-item">
           <Link
             style={currentTab(history, "/admin/dashboard")}
-            className="nav-link"
+            className="nav-link menuLinks"
             to="/admin/dashboard"
           >
             Admin
@@ -53,7 +67,7 @@ const Menu = ({ history }) => (
             <li className="nav-item">
               <Link
                 style={currentTab(history, "/signup")}
-                className="nav-link"
+                className="nav-link menuLinks"
                 to="/signup"
               >
                 Signup
@@ -62,7 +76,7 @@ const Menu = ({ history }) => (
             <li className="nav-item">
               <Link
                 style={currentTab(history, "/signin")}
-                className="nav-link"
+                className="nav-link menuLinks"
                 to="/signin"
               >
                 Sign In
@@ -77,7 +91,7 @@ const Menu = ({ history }) => (
             <li className="nav-item">
          <Link>
          <span
-            className="nav-link text-warning"
+            className="nav-link text-warning menuLinks"
             onClick={()=>signout(()=>{
               history.push("/");
             })}
@@ -90,6 +104,17 @@ const Menu = ({ history }) => (
         }
 
     </ul>
+
+
+
+
+  <form class="form-inline">
+    <input class="form-control mr-sm-2 mr-3" type="search" placeholder="Search" aria-label="Search"/>
+    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+
+
   </div>
 );
 

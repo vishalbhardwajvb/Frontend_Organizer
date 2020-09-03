@@ -3,6 +3,7 @@ import { API } from "../../backend"
 
 
 export const createCategory=(userId,category)=>{
+    console.log(category)
 
     return fetch(`${API}/category/create`,{
         method:"POST",

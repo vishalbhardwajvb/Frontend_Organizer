@@ -6,6 +6,7 @@ import { createCategory } from "./helper/helper";
 
 const AddCategory = () => {
   const [category, setCategory] = useState("");
+  const [url, setCategoryUrl] = useState("");
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -23,20 +24,27 @@ const AddCategory = () => {
     setError("");
     setCategory(event.target.value);
   };
+  const handleChangeUrl=event=>{
+    setError("");
+    setCategoryUrl(event.target.value);
+
+  }
 
   const onSubmit = event => {
     event.preventDefault();
     setError("");
     setSuccess(false);
 
+
     // backend request fired
-    createCategory(user._id,{category }).then(data => {
+    createCategory(user._id,{category,url}).then(data => {
       if (data.error) {
         setError(true);
       } else {
         setError("");
         setSuccess(true);
         setCategory("");
+        setCategoryUrl("");
       }
     });
   };
@@ -65,6 +73,16 @@ const AddCategory = () => {
           autoFocus
           required
           placeholder="For Ex. Summer"
+        />
+
+        <p className="lead">Enter the category Image Url</p>
+        <input
+          type="text"
+          className="form-control my-3"
+          onChange={handleChangeUrl}
+          value={url}
+          required
+          placeholder="https://imageammnsxz.jpg"
         />
         <button onClick={onSubmit} className="btn btn-outline-info">
           Create Category
