@@ -21,9 +21,12 @@ const [values,setValues]=useState({
 const {user}=isAuthenticated()
 
 const {day,url,description,loading,error,success,time}=values;
+
   const onSubmit = event => {
+
       event.preventDefault();
       setValues({...values,loading:true,error:false});
+  
 
       updateLectureById(user._id,match.params.lectureId,{day,description,url,time}).then(data=>{
           if(data.error)
@@ -178,17 +181,6 @@ const {day,url,description,loading,error,success,time}=values;
       </div>
 
 
-  
-     
-      {/* <div className="form-group">
-        <select
-          onChange={handleChange("category")}
-          className="form-control"
-          placeholder="Category"
-        >
-          <option>Select</option>
-        </select>
-      </div> */}
 
       <button
         type="submit"
