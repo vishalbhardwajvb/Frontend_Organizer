@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+
 .btn,
 .jumbotron,
 .nav :hover {
@@ -12,6 +14,7 @@ body {
 *{
   margin: 0;
   padding: 0;
+  font-family: 'Crimson Text', serif;
 }
 
 .cardprops
@@ -32,4 +35,22 @@ body {
   font-size: 2rem;
   color: white;
   font-weight: 300;
+}
+
+
+.lecture{
+  font-size: 20px;
+}
+.table_heading ,.Home_Lecture
+{
+  border: 1px solid #487EB0;
+  color: #43BE31;
+  background: #2C3335;
+  font-size:38px ;
+  font-family: 'Crimson Text', serif;
+}
+
+.tabledatasize
+{
+  font-size: 22px;
 }

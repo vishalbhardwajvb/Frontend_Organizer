@@ -53,7 +53,7 @@ const LoadAllLecture=({match})=>{
         <Base title="Happy Learning" description="We Wish for Your Better Future">
           {loadingMessage()}
 
-<h4 className="card-header text-success">Lectures Infomation</h4>
+<h4 className="card-header text-success Home_Lecture">Lectures Infomation</h4>
            <table class="table  border border-info table-striped table-dark">
              
  
@@ -83,11 +83,11 @@ const LoadAllLecture=({match})=>{
       
       state.map((lecture)=>{
         return(
-          <tr>
+          <tr className="tabledatasize">
           <th className="text-center" scope="row">{lecture.day}</th>
-        <td className="text-center">{lecture.time}</td>
+        <td className="text-center ">{lecture.time}</td>
         <td className="text-center">{lecture.description}</td>
-        <td className="text-center"><button onClick={()=>{window.open(lecture.url,"_blank")}} className="btn btn-info">Play Lecture</button></td>
+        <td className="text-center tabledatasize"><button onClick={()=>{window.open(lecture.url,"_blank")}} className="btn btn-info">Play Lecture</button></td>
         </tr>
         )
 

@@ -9,20 +9,24 @@ import {deleteLecture} from "./helper/lecture"
 const GetAllLecture=({
    match
 })=>{
+    const[loading,setLoading]=useState(false);
 
     const [lectures,setLectures]=useState([]);
 
     const {user}=isAuthenticated()
 
     const getAllLecture=()=>{
+      setLoading(true)
 
         getAllLectures(user._id).then(data=>{
             if(data.error)
             {
+                setLoading(false)
                 console.log("GET ALL LECTURE DATA.ERROR found")
             }
             else
             {
+              setLoading(false);
                 setLectures(data.lecture);
             }
         }).catch(err=>console.log("Not GET ALL LECTURE Fetch Internal func ERROR "))
@@ -30,11 +34,14 @@ const GetAllLecture=({
     }
 
     const deleteThisLecture = (lectureId) => {
+        setLoading(true)
         deleteLecture(user._id,lectureId).then(data => {
           if (data.error) {
             console.log(data.error);
+            setLoading(false)
           } else {
             getAllLecture();
+            setLoading(false)
           }
         });
       };
@@ -43,16 +50,30 @@ const GetAllLecture=({
         getAllLecture();
     },[])
 
+    const loadingMessage = () => {
+      return (
+        loading && (
+         <div className="row">
+            <div className="alert alert-info offset-3 col-md-6">
+            <h2>Loading...</h2>
+          </div>
+
+         </div>
+        )
+      );
+    };
+
 
 
     return(
         <Base title="Your All Lecture" description="Here you can update your Records ">
+          {loadingMessage()}
           <Link to="/user/dashboard" className="btn btn-md btn-info mb-3">
         Back To DashBoard
       </Link>
-                <h4 className="card-header text-success">Lectures Infomation</h4>
+                <h4 className="card-header text-success  table_heading">Lectures Infomation</h4>
 
-<table class="table  border border-info table-striped table-dark">
+<table class="table  border border-info table-striped table-dark lecture">
   <thead className="border border-info">
     <tr>
       <th className="text-center" scope="col">Day</th>
@@ -66,9 +87,9 @@ const GetAllLecture=({
     {
       lectures.map((lecture)=>{
         return(
-          <tr>
+          <tr className="mt-4">
           <th className="text-center" scope="row">{lecture.day}</th>
-          <th className="text-center" scope="row">{lecture.time}</th>
+          <td className="text-center" >{lecture.time}</td>
           <td className="text-center">{lecture.description}</td>
           
            <td className="text-center">
